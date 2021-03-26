@@ -14,4 +14,8 @@ public class RandomUtils {
     public static int getDivisionPoint(int geneLength) {
         return random.nextInt(geneLength - 1) + minimal_division_point;
     }
+
+    public static int getRandomIndex(int size){
+        return random.nextInt(size);
+    }
 }
