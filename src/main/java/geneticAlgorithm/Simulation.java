@@ -27,7 +27,7 @@ public class Simulation {
         Gene partner = society.get(RandomUtils.getRandomIndex(society.size()));
         if (partner == loner) {
             return getPartner(society, loner);
-        } else
-            return partner;
+        }
+        return partner;
     }
 }
