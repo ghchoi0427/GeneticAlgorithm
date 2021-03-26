@@ -7,6 +7,10 @@ public class Gene {
         chromosome = generateGene();
     }
 
+    public Gene(String inheritedGene){
+        chromosome = inheritedGene;
+    }
+
     public String getChromosome() {
         return chromosome;
     }
