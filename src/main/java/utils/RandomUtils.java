@@ -3,9 +3,15 @@ package utils;
 import java.util.Random;
 
 public class RandomUtils {
+    private final static int minimal_division_point = 1;
+
     private final static Random random = new Random();
 
-    public static String getRandomBinary(){
+    public static String getRandomBinary() {
         return String.valueOf(random.nextInt(2));
+    }
+
+    public static int getDivisionPoint(int geneLength) {
+        return random.nextInt(geneLength - 1) + minimal_division_point;
     }
 }
