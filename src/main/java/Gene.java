@@ -18,4 +18,8 @@ public class Gene {
         }
         return result;
     }
+
+    public Gene mate(Gene gene1, Gene gene2){
+
+    }
 }
