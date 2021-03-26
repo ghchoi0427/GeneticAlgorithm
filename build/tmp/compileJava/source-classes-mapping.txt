@@ -1,6 +1,10 @@
-Application.java
- Application
-Gene.java
- Gene
 utils/RandomUtils.java
  utils.RandomUtils
+geneticAlgorithm/Simulation.java
+ geneticAlgorithm.Simulation
+utils/Roulette.java
+ utils.Roulette
+geneticAlgorithm/Gene.java
+ geneticAlgorithm.Gene
+Application.java
+ Application
