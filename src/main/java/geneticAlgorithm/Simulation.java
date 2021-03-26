@@ -1,6 +1,7 @@
 package geneticAlgorithm;
 
 import utils.RandomUtils;
+import view.InputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +16,16 @@ public class Simulation {
         return generation;
     }
 
-    private List<Gene> recreateGeneration(List<Gene> oldGeneration) {
+    private List<Gene> parentCandidates(List<Gene> generation){
+
+    }
+
+    private void recreateGeneration(List<Gene> oldGeneration) {
         List<Gene> newGeneration = null;
         for (Gene gene : oldGeneration) {
             newGeneration.add(gene.mate(getPartner(oldGeneration, gene)));
         }
-        return newGeneration;
+        oldGeneration = newGeneration;
     }
 
     private Gene getPartner(List<Gene> society, Gene loner) {
