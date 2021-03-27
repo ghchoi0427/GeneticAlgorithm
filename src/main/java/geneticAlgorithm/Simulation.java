@@ -4,6 +4,7 @@ import utils.RandomUtils;
 import view.InputView;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,27 +47,14 @@ public class Simulation {
         for(Gene gene : geneList){
             fitnesses.add(gene.getFitness());
         }
-        return fitnesses.stream().distinct().collect(Collectors.toList());
+        return fitnesses.stream().distinct().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
     }
 
     public void startSimulation() throws Exception {
-        //Output
-        int population = InputView.inputNumber();
-        // Output
-        int rep = InputView.inputNumber();
-        // Output
-        int mutation = InputView.inputNumber();
 
-
-        List<Gene> currentGeneration = createGeneration(100);
-        //Output(currentGeneration);
-
-        for (int i = 0; i < rep; i++) {
-            recreateGeneration(currentGeneration);
-            //Output(currentGeneration);
-        }
-
-        //Output.finalReport();
+        List<Gene> currentGeneration = createGeneration(10);
+        List<Integer> list = getOverallFitness(currentGeneration);
+        list.stream().forEach(System.out::println);
 
     }
 }
