@@ -1,10 +1,14 @@
 utils/RandomUtils.java
  utils.RandomUtils
-geneticAlgorithm/Simulation.java
- geneticAlgorithm.Simulation
+view/OutputView.java
+ view.OutputView
+view/InputView.java
+ view.InputView
 utils/Roulette.java
  utils.Roulette
 geneticAlgorithm/Gene.java
  geneticAlgorithm.Gene
 Application.java
  Application
+geneticAlgorithm/Simulation.java
+ geneticAlgorithm.Simulation
