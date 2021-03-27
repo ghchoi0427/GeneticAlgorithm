@@ -1,7 +1,6 @@
 package utils;
 
 import geneticAlgorithm.Gene;
-import geneticAlgorithm.Simulation;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -10,20 +9,41 @@ import java.util.stream.Collectors;
 
 public class Roulette {
 
-    private Roulette(){}
+    private Roulette() {
+    }
 
     public static List<Integer> getOverallFitness(List<Gene> geneList) {
         List<Integer> fitnesses = new ArrayList<>();
-        for(Gene gene : geneList){
+        for (Gene gene : geneList) {
             fitnesses.add(gene.getFitness());
         }
         return fitnesses.stream().distinct().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
     }
 
-    public static void turn(List<Gene> geneList) {
-        int fitnessSum = 0;
+    private static int getFitnessSum(List<Gene> geneList){
+        return geneList.stream().mapToInt(e->e.getFitness()).sum();
+    }
 
-        Integer sum = geneList.stream().mapToInt(Integer::intValue).sum();
+    public static void turn(List<Gene> geneList) {
+        //int sum = getOverallFitness(geneList).stream().mapToInt(Integer::intValue).sum();
+
+        int pinpoint = RandomUtils.getRandomPercentage() % sum;
+
+        for(Gene gene : geneList){
+            pinpoint -= gene.getFitness();
+            if(pinpoint<0){
+                return gene;
+            }
+        }
+
+
+        List<Integer> fitnessList = getOverallFitness(geneList);
+
+        for(int i : fitnessList){
+
+        }
+
+
         for (int i : geneList) {
             fitnessSum += i;
         }
