@@ -20,6 +20,6 @@ public class RandomUtils {
     }
 
     public static int getRandomPercentage(){
-        return random.nextInt(101);
+        return random.nextInt(10001);
     }
 }
