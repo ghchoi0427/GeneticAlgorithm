@@ -41,4 +41,8 @@ public class Gene {
         return (int) chromosome.chars().filter(e -> e == '1').count();
     }
 
+    public boolean isIdentical(Gene gene){
+        return this.equals(gene);
+    }
+
 }
