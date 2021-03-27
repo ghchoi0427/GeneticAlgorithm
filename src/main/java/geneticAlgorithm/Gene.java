@@ -2,9 +2,6 @@ package geneticAlgorithm;
 
 import utils.RandomUtils;
 
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
 public class Gene {
     private String chromosome;
 
