@@ -18,4 +18,8 @@ public class RandomUtils {
     public static int getRandomIndex(int size){
         return random.nextInt(size);
     }
+
+    public static int getRandomPercentage(){
+        return random.nextInt(101);
+    }
 }
