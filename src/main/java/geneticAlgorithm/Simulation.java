@@ -1,13 +1,9 @@
 package geneticAlgorithm;
 
 import utils.RandomUtils;
-import utils.Roulette;
-import view.InputView;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Simulation {
 
@@ -20,36 +16,41 @@ public class Simulation {
     }
 
     private List<Gene> parentCandidates(List<Gene> generation) {
-        List<Gene> selectedGenes = null;
+        List<Gene> selectedGenes = new ArrayList<>();
         for (Gene g : generation) {
             selectedGenes.add(new Gene());
         }
         return selectedGenes;
     }
 
-    private void recreateGeneration(List<Gene> oldGeneration) {
-        List<Gene> newGeneration = null;
+    private List<Gene> recreateGeneration(List<Gene> oldGeneration) {
+        List<Gene> newGeneration = new ArrayList<>();
         for (Gene gene : oldGeneration) {
             newGeneration.add(gene.mate(getPartner(oldGeneration, gene)));
         }
-        oldGeneration = newGeneration;
+        return newGeneration;
     }
 
     private Gene getPartner(List<Gene> society, Gene loner) {
         Gene partner = society.get(RandomUtils.getRandomIndex(society.size()));
-        if (partner == loner) {
+        if (partner.isIdentical(loner)) {
             return getPartner(society, loner);
         }
         return partner;
     }
 
-
-
     public void startSimulation() throws Exception {
 
         List<Gene> currentGeneration = createGeneration(10);
-        List<Integer> list = Roulette.getOverallFitness(currentGeneration);
-        list.stream().forEach(System.out::println);
+        parentCandidates(currentGeneration);
+
+        //recreateGeneration(currentGeneration);
+        //currentGeneration = recreateGeneration(currentGeneration);
+        //currentGeneration.add(new Gene());
+
+        //System.out.println(Roulette.turn(currentGeneration).getChromosome());
+        //List<Integer> list = Roulette.getOverallFitness(currentGeneration);
+        //list.stream().forEach(System.out::println);
 
     }
 }
