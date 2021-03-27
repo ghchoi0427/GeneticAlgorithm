@@ -20,32 +20,20 @@ public class Roulette {
         return fitnesses.stream().distinct().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
     }
 
-    private static int getFitnessSum(List<Gene> geneList){
-        return geneList.stream().mapToInt(e->e.getFitness()).sum();
+    private static int getFitnessSum(List<Gene> geneList) {
+        return geneList.stream().mapToInt(e -> e.getFitness()).sum();
     }
 
-    public static void turn(List<Gene> geneList) {
-        //int sum = getOverallFitness(geneList).stream().mapToInt(Integer::intValue).sum();
-
+    public static Gene turn(List<Gene> geneList) {
+        int sum = getFitnessSum(geneList);
         int pinpoint = RandomUtils.getRandomPercentage() % sum;
 
-        for(Gene gene : geneList){
+        for (Gene gene : geneList) {
             pinpoint -= gene.getFitness();
-            if(pinpoint<0){
+            if (pinpoint < 0) {
                 return gene;
             }
         }
-
-
-        List<Integer> fitnessList = getOverallFitness(geneList);
-
-        for(int i : fitnessList){
-
-        }
-
-
-        for (int i : geneList) {
-            fitnessSum += i;
-        }
+        return null;
     }
 }
