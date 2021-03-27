@@ -1,12 +1,11 @@
 package view;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class InputView {
-    private static final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    private static final Scanner sc = new Scanner(System.in);
 
-    public static int inputNumber() throws Exception {
-        return Integer.parseInt(bufferedReader.readLine());
+    public static int inputNumber() {
+        return sc.nextInt();
     }
 }
