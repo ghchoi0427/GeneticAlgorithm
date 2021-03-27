@@ -16,8 +16,12 @@ public class Simulation {
         return generation;
     }
 
-    private List<Gene> parentCandidates(List<Gene> generation){
-
+    private List<Gene> parentCandidates(List<Gene> generation) {
+        List<Gene> selectedGenes = null;
+        for(Gene g : generation){
+            selectedGenes.add(new Gene());
+        }
+        return selectedGenes;
     }
 
     private void recreateGeneration(List<Gene> oldGeneration) {
