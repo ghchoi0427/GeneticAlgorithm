@@ -5,6 +5,7 @@ import view.InputView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Simulation {
 
@@ -18,7 +19,7 @@ public class Simulation {
 
     private List<Gene> parentCandidates(List<Gene> generation) {
         List<Gene> selectedGenes = null;
-        for(Gene g : generation){
+        for (Gene g : generation) {
             selectedGenes.add(new Gene());
         }
         return selectedGenes;
@@ -38,5 +39,34 @@ public class Simulation {
             return getPartner(society, loner);
         }
         return partner;
+    }
+
+    public List<Integer> getOverallFitness(List<Gene> geneList) {
+        List<Integer> fitnesses = new ArrayList<>();
+        for(Gene gene : geneList){
+            fitnesses.add(gene.getFitness());
+        }
+        return fitnesses.stream().distinct().collect(Collectors.toList());
+    }
+
+    public void startSimulation() throws Exception {
+        //Output
+        int population = InputView.inputNumber();
+        // Output
+        int rep = InputView.inputNumber();
+        // Output
+        int mutation = InputView.inputNumber();
+
+
+        List<Gene> currentGeneration = createGeneration(100);
+        //Output(currentGeneration);
+
+        for (int i = 0; i < rep; i++) {
+            recreateGeneration(currentGeneration);
+            //Output(currentGeneration);
+        }
+
+        //Output.finalReport();
+
     }
 }
