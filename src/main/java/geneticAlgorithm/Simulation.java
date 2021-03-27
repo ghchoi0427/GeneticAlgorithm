@@ -1,6 +1,7 @@
 package geneticAlgorithm;
 
 import utils.RandomUtils;
+import utils.Roulette;
 import view.InputView;
 
 import java.util.ArrayList;
@@ -42,18 +43,12 @@ public class Simulation {
         return partner;
     }
 
-    public List<Integer> getOverallFitness(List<Gene> geneList) {
-        List<Integer> fitnesses = new ArrayList<>();
-        for(Gene gene : geneList){
-            fitnesses.add(gene.getFitness());
-        }
-        return fitnesses.stream().distinct().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
-    }
+
 
     public void startSimulation() throws Exception {
 
         List<Gene> currentGeneration = createGeneration(10);
-        List<Integer> list = getOverallFitness(currentGeneration);
+        List<Integer> list = Roulette.getOverallFitness(currentGeneration);
         list.stream().forEach(System.out::println);
 
     }
