@@ -2,6 +2,9 @@ package geneticAlgorithm;
 
 import utils.RandomUtils;
 
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 public class Gene {
     private String chromosome;
 
@@ -35,6 +38,10 @@ public class Gene {
 
     private String recreateGene(String chromosome1, String chromosome2, int divisionPoint) {
         return chromosome1.substring(0, divisionPoint) + chromosome2.substring(divisionPoint, chromosome1.length());
+    }
+
+    public int getFitness() {
+        return (int) chromosome.chars().filter(e -> e == '1').count();
     }
 
 }
