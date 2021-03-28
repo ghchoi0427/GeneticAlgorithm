@@ -20,7 +20,7 @@ public class Roulette {
         return fitnesses.stream().distinct().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
     }
 
-    private static int getFitnessSum(List<Gene> geneList) {
+    public static int getFitnessSum(List<Gene> geneList) {
         return geneList.stream().mapToInt(e -> e.getFitness()).sum();
     }
 
