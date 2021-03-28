@@ -1,6 +1,8 @@
 package geneticAlgorithm;
 
 import utils.RandomUtils;
+import utils.Roulette;
+import view.InputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +20,26 @@ public class Simulation {
     private List<Gene> parentCandidates(List<Gene> generation) {
         List<Gene> selectedGenes = new ArrayList<>();
         for (Gene g : generation) {
-            selectedGenes.add(new Gene());
+            selectedGenes.add(Roulette.turn(generation));
         }
         return selectedGenes;
     }
 
-    private List<Gene> recreateGeneration(List<Gene> oldGeneration) {
+    private void mutateGene(List<Gene> geneList, int rate) {
+        for(Gene gene : geneList){
+            if(RandomUtils.mutate(rate)){
+                distortChromosome(gene.getChromosome());
+            }
+        }
+    }
+
+    private List<Gene> recreateGeneration(List<Gene> oldGeneration, int mutationRate) {
         List<Gene> newGeneration = new ArrayList<>();
+        oldGeneration = parentCandidates(oldGeneration);
         for (Gene gene : oldGeneration) {
             newGeneration.add(gene.mate(getPartner(oldGeneration, gene)));
         }
+        mutateGene(newGeneration,mutationRate);
         return newGeneration;
     }
 
@@ -39,18 +51,16 @@ public class Simulation {
         return partner;
     }
 
-    public void startSimulation() throws Exception {
+    public void startSimulation() {
 
-        List<Gene> currentGeneration = createGeneration(10);
-        parentCandidates(currentGeneration);
+        final int population = InputView.inputPopulation();
+        final int generation = InputView.inputGeneration();
+        final int mutation = InputView.inputMutation();
 
-        //recreateGeneration(currentGeneration);
-        //currentGeneration = recreateGeneration(currentGeneration);
-        //currentGeneration.add(new Gene());
-
-        //System.out.println(Roulette.turn(currentGeneration).getChromosome());
-        //List<Integer> list = Roulette.getOverallFitness(currentGeneration);
-        //list.stream().forEach(System.out::println);
-
+        List<Gene> currentGeneration = createGeneration(population);
+        for (int i = 0; i < generation; i++) {
+            currentGeneration = recreateGeneration(currentGeneration);
+            System.out.println(Roulette.getFitnessSum(currentGeneration));
+        }
     }
 }
