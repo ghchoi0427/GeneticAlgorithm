@@ -1,14 +1,14 @@
 view/InputView.java
  view.InputView
-geneticAlgorithm/Gene.java
- geneticAlgorithm.Gene
-utils/RandomUtils.java
- utils.RandomUtils
 utils/Roulette.java
  utils.Roulette
-view/OutputView.java
- view.OutputView
+utils/RandomUtils.java
+ utils.RandomUtils
+geneticAlgorithm/Gene.java
+ geneticAlgorithm.Gene
 Application.java
  Application
+view/OutputView.java
+ view.OutputView
 geneticAlgorithm/Simulation.java
  geneticAlgorithm.Simulation
