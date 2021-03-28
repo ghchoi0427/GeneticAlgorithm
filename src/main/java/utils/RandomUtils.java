@@ -15,11 +15,15 @@ public class RandomUtils {
         return random.nextInt(geneLength - 1) + minimal_division_point;
     }
 
-    public static int getRandomIndex(int size){
+    public static int getRandomIndex(int size) {
         return random.nextInt(size);
     }
 
-    public static int getRandomPercentage(){
+    public static int getRandomPercentage() {
         return random.nextInt(10001);
+    }
+
+    public static boolean mutate(int mutationRate) {
+        return random.nextInt(100) < mutationRate;
     }
 }
