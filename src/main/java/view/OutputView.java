@@ -8,6 +8,10 @@ import java.util.NoSuchElementException;
 
 public class OutputView {
 
+    private OutputView() {
+
+    }
+
     private static final String MESSAGE_AVERAGE_FITNESS = "average fitness: ";
 
     public static void averageFitness(List<Gene> geneList) {
