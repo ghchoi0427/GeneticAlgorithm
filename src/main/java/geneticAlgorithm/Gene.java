@@ -28,10 +28,10 @@ public class Gene {
 
     public Gene mate(Gene partnerGene) {
         int divisionPoint = RandomUtils.getDivisionPoint(getChromosome().length());
-        return new Gene(recreateGene(getChromosome(), partnerGene.getChromosome(), divisionPoint));
+        return new Gene(recreateChromosome(getChromosome(), partnerGene.getChromosome(), divisionPoint));
     }
 
-    private String recreateGene(String chromosome1, String chromosome2, int divisionPoint) {
+    private String recreateChromosome(String chromosome1, String chromosome2, int divisionPoint) {
         return chromosome1.substring(0, divisionPoint) + chromosome2.substring(divisionPoint, chromosome1.length());
     }
 
