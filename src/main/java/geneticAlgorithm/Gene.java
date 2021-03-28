@@ -26,10 +26,7 @@ public class Gene {
     }
 
     public Gene mate(Gene partnerGene) {
-        int length = getChromosome().length();
-        int divisionPoint = RandomUtils.getDivisionPoint(length);
-        recreateGene(getChromosome(), partnerGene.getChromosome(), divisionPoint);
-
+        int divisionPoint = RandomUtils.getDivisionPoint(getChromosome().length());
         return new Gene(recreateGene(getChromosome(), partnerGene.getChromosome(), divisionPoint));
     }
 
