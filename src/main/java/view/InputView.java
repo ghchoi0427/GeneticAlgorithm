@@ -8,10 +8,6 @@ public class InputView {
     private static final String INPUT_GENERATION = "input generation: ";
     private static final String INPUT_MUTATION = "input mutation(%): ";
 
-    public static int inputNumber() {
-        return sc.nextInt();
-    }
-
     public static int inputPopulation() {
         System.out.println(INPUT_POPULATION);
         return sc.nextInt();
