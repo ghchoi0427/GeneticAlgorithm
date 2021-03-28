@@ -4,7 +4,7 @@ import utils.RandomUtils;
 
 public class Gene {
     private String chromosome;
-    private final int chromosomeLength = 8;
+
     public Gene() {
         chromosome = generateChromosome();
     }
@@ -19,6 +19,7 @@ public class Gene {
 
     private String generateChromosome() {
         String chromosome = "";
+        final int chromosomeLength = 8;
         for (int i = 0; i < chromosomeLength; i++) {
             chromosome += RandomUtils.getRandomBinary();
         }
