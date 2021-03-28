@@ -37,6 +37,15 @@ public class Simulation {
         invertBinary(chromosome.charAt(RandomUtils.getRandomIndex(chromosome.length())));
     }
 
+    private void invertBinary(char num) {
+        if (num == '0') {
+            num = '1';
+        }
+        if (num == '1') {
+            num = '0';
+        }
+    }
+
     private List<Gene> recreateGeneration(List<Gene> oldGeneration, int mutationRate) {
         List<Gene> newGeneration = new ArrayList<>();
         oldGeneration = parentCandidates(oldGeneration);
