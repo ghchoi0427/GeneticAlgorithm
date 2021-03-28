@@ -15,4 +15,8 @@ public class OutputView {
 
         System.out.println(MESSAGE_AVERAGE_FITNESS + (float) (currentFitnessSum * 100 / IdealFitnessSum) + "%");
     }
+
+    public static void generationIndicator(int index){
+        System.out.println("[Generation " + index + "]");
+    }
 }
