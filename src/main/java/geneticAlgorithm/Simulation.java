@@ -10,6 +10,9 @@ import java.util.List;
 
 public class Simulation {
 
+    public Simulation() {
+    }
+
     private List<Gene> createGeneration(int population) {
         List<Gene> generation = new ArrayList<>();
         for (int i = 0; i < population; i++) {
