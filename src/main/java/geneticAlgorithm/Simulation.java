@@ -33,6 +33,10 @@ public class Simulation {
         }
     }
 
+    private void distortChromosome(String chromosome) {
+        invertBinary(chromosome.charAt(RandomUtils.getRandomIndex(chromosome.length())));
+    }
+
     private List<Gene> recreateGeneration(List<Gene> oldGeneration, int mutationRate) {
         List<Gene> newGeneration = new ArrayList<>();
         oldGeneration = parentCandidates(oldGeneration);
