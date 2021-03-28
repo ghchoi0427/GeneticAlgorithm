@@ -59,9 +59,11 @@ public class Simulation {
         final int mutation = InputView.inputMutation();
 
         List<Gene> currentGeneration = createGeneration(population);
-        System.out.print("[Initial]");
+
         OutputView.averageFitness(currentGeneration);
         for (int i = 0; i < generation; i++) {
+            OutputView.generationIndicator(i);
+            OutputView.getTheFittest(currentGeneration);
             currentGeneration = recreateGeneration(currentGeneration, mutation);
             OutputView.averageFitness(currentGeneration);
         }
