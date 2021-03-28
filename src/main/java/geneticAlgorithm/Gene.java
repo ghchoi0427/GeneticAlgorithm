@@ -3,7 +3,7 @@ package geneticAlgorithm;
 import utils.RandomUtils;
 
 public class Gene {
-    private String chromosome;
+    private final String chromosome;
 
     public Gene() {
         chromosome = generateChromosome();
