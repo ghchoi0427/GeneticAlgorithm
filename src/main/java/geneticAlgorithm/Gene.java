@@ -18,12 +18,12 @@ public class Gene {
     }
 
     private String generateChromosome() {
-        String chromosome = "";
+        StringBuilder chromosome = new StringBuilder();
         final int chromosomeLength = 8;
         for (int i = 0; i < chromosomeLength; i++) {
-            chromosome += RandomUtils.getRandomBinary();
+            chromosome.append(RandomUtils.getRandomBinary());
         }
-        return chromosome;
+        return chromosome.toString();
     }
 
     public Gene mate(Gene partnerGene) {
