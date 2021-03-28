@@ -6,7 +6,7 @@ public class Gene {
     private String chromosome;
     private final int chromosomeLength = 8;
     public Gene() {
-        chromosome = generateGene();
+        chromosome = generateChromosome();
     }
 
     public Gene(String inheritedGene) {
@@ -17,12 +17,12 @@ public class Gene {
         return chromosome;
     }
 
-    private String generateGene() {
-        String result = "";
+    private String generateChromosome() {
+        String chromosome = "";
         for (int i = 0; i < chromosomeLength; i++) {
-            result += RandomUtils.getRandomBinary();
+            chromosome += RandomUtils.getRandomBinary();
         }
-        return result;
+        return chromosome;
     }
 
     public Gene mate(Gene partnerGene) {
