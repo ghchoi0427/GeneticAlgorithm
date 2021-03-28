@@ -3,6 +3,10 @@ package utils;
 import java.util.Random;
 
 public class RandomUtils {
+
+    private RandomUtils() {
+    }
+
     private final static int minimal_division_point = 1;
 
     private final static Random random = new Random();
