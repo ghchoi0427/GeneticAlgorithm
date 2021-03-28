@@ -10,7 +10,10 @@ public class Roulette {
     }
 
     public static int getFitnessSum(List<Gene> geneList) {
-        return geneList.stream().mapToInt(e -> e.getFitness()).sum();
+        return geneList
+                .stream()
+                .mapToInt(e -> e.getFitness())
+                .sum();
     }
 
     public static Gene turn(List<Gene> geneList) {

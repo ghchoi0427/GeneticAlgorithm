@@ -26,6 +26,10 @@ public class OutputView {
     }
 
     public static void getTheFittest(List<Gene> geneList) {
-        System.out.println("The Fittest: " + geneList.stream().mapToInt(e -> e.getFitness()).max().orElseThrow(NoSuchElementException::new) + "/" + geneList.get(0).getChromosome().length());
+        System.out.println("The Fittest: " + geneList
+                .stream()
+                .mapToInt(e -> e.getFitness())
+                .max()
+                .orElseThrow(NoSuchElementException::new) + "/" + geneList.get(0).getChromosome().length());
     }
 }
