@@ -3,6 +3,7 @@ package geneticAlgorithm;
 import utils.RandomUtils;
 import utils.Roulette;
 import view.InputView;
+import view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,23 +27,10 @@ public class Simulation {
     }
 
     private void mutateGene(List<Gene> geneList, int rate) {
-        for(Gene gene : geneList){
-            if(RandomUtils.mutate(rate)){
-                distortChromosome(gene.getChromosome());
+        for (Gene gene : geneList) {
+            if (RandomUtils.mutate(rate)) {
+                gene = new Gene();
             }
-        }
-    }
-
-    private void distortChromosome(String chromosome) {
-        invertBinary(chromosome.charAt(RandomUtils.getRandomIndex(chromosome.length())));
-    }
-
-    private void invertBinary(char num) {
-        if (num == '0') {
-            num = '1';
-        }
-        if (num == '1') {
-            num = '0';
         }
     }
 
@@ -52,7 +40,7 @@ public class Simulation {
         for (Gene gene : oldGeneration) {
             newGeneration.add(gene.mate(getPartner(oldGeneration, gene)));
         }
-        mutateGene(newGeneration,mutationRate);
+        mutateGene(newGeneration, mutationRate);
         return newGeneration;
     }
 
@@ -71,9 +59,12 @@ public class Simulation {
         final int mutation = InputView.inputMutation();
 
         List<Gene> currentGeneration = createGeneration(population);
+        System.out.print("[Initial]");
+        OutputView.averageFitness(currentGeneration);
         for (int i = 0; i < generation; i++) {
-            currentGeneration = recreateGeneration(currentGeneration);
-            System.out.println(Roulette.getFitnessSum(currentGeneration));
+            currentGeneration = recreateGeneration(currentGeneration, mutation);
+            OutputView.averageFitness(currentGeneration);
         }
+
     }
 }
