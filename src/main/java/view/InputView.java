@@ -14,17 +14,17 @@ public class InputView {
     private static final String INPUT_MUTATION = "input mutation(%): ";
 
     public static int inputPopulation() {
-        System.out.println(INPUT_POPULATION);
+        System.out.print(INPUT_POPULATION);
         return sc.nextInt();
     }
 
     public static int inputGeneration() {
-        System.out.println(INPUT_GENERATION);
+        System.out.print(INPUT_GENERATION);
         return sc.nextInt();
     }
 
     public static int inputMutation() {
-        System.out.println(INPUT_MUTATION);
+        System.out.print(INPUT_MUTATION);
         return sc.nextInt();
     }
 }
