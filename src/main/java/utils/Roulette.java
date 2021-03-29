@@ -17,8 +17,7 @@ public class Roulette {
     }
 
     public static Gene turn(List<Gene> geneList) {
-        int sum = getFitnessSum(geneList);
-        int pinpoint = RandomUtils.getRandomPercentage() % sum;
+        int pinpoint = RandomUtils.getRandomPercentage() % getFitnessSum(geneList);
 
         for (Gene gene : geneList) {
             pinpoint -= gene.getFitness();
