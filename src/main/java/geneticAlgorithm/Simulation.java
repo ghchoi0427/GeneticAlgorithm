@@ -66,8 +66,8 @@ public class Simulation {
         OutputView.averageFitness(currentGeneration);
         for (int i = 0; i < generation; i++) {
             OutputView.generationIndicator(i);
-            OutputView.getTheFittest(currentGeneration);
             currentGeneration = recreateGeneration(currentGeneration, mutation);
+            OutputView.getTheFittest(currentGeneration);
             OutputView.averageFitness(currentGeneration);
         }
 
