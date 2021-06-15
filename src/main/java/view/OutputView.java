@@ -30,6 +30,7 @@ public class OutputView {
                 .stream()
                 .mapToInt(Gene::getFitness)
                 .max()
-                .orElseThrow(NoSuchElementException::new) + "/" + geneList.get(0).getChromosome().length());
+                .orElseThrow(NoSuchElementException::new) + "/" + geneList.get(0).getMaxFitness());
     }
+
 }
