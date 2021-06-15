@@ -44,7 +44,23 @@ public class Gene {
     }
 
     public int getFitness() {
-        return (int) chromosome.chars().filter(e -> e == '1').count();
+        //return (int) chromosome.chars().filter(e -> e == '1').count();
+    }
+
+    public int getFitness(Gene gene) {
+        int value = Integer.parseInt(gene.getChromosome(), 2);
+        return 15 * value - value * value;
+    }
+
+    public void getMaxFitness() {
+        int MaxDecimal = (int) Math.pow(2, chromosome.length());
+        for (int i = 0; i < MaxDecimal; i++) {
+            String.format("%" + chromosome.length() + "s", Integer.toBinaryString(i)).replace(' ', '0');
+        }
+    }
+
+    private void IntToChromosome(int decimal) {
+
     }
 
     public boolean isIdentical(Gene gene) {
