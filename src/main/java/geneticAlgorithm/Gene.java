@@ -2,6 +2,8 @@ package geneticAlgorithm;
 
 import utils.RandomUtils;
 
+import java.util.stream.IntStream;
+
 public class Gene {
     private final String chromosome;
 
@@ -44,23 +46,24 @@ public class Gene {
     }
 
     public int getFitness() {
-        //return (int) chromosome.chars().filter(e -> e == '1').count();
+        return (int) chromosome.chars().filter(e -> e == '1').count();
     }
 
-    public int getFitness(Gene gene) {
-        int value = Integer.parseInt(gene.getChromosome(), 2);
+    private int getFitness(String chromosome) {
+        int value = Integer.parseInt(chromosome, 2);
         return 15 * value - value * value;
     }
 
-    public void getMaxFitness() {
-        int MaxDecimal = (int) Math.pow(2, chromosome.length());
-        for (int i = 0; i < MaxDecimal; i++) {
-            String.format("%" + chromosome.length() + "s", Integer.toBinaryString(i)).replace(' ', '0');
-        }
+    public int getMaxFitness() {
+        return IntStream.range(0, (int) Math.pow(2, chromosome.length()))
+                .mapToObj(e -> intToChromosome(e))
+                .mapToInt(param -> getFitness(param))
+                .max()
+                .getAsInt();
     }
 
-    private void IntToChromosome(int decimal) {
-
+    private String intToChromosome(int decimal) {
+        return String.format("%" + getChromosome().length() + "s", Integer.toBinaryString(decimal)).replace(' ', '0');
     }
 
     public boolean isIdentical(Gene gene) {
