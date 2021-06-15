@@ -15,10 +15,6 @@ public class RandomUtils {
         return String.valueOf(random.nextInt(2));
     }
 
-    public static int getDivisionPoint(int geneLength) {
-        return random.nextInt(geneLength - 1) + minimal_division_point;
-    }
-
     public static int getRandomIndex(int size) {
         return random.nextInt(size);
     }
@@ -29,5 +25,9 @@ public class RandomUtils {
 
     public static boolean mutate(int mutationRate) {
         return random.nextInt(100) < mutationRate;
+    }
+
+    public static boolean getRandomBoolean() {
+        return random.nextBoolean();
     }
 }
