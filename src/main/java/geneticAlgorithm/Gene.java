@@ -27,19 +27,27 @@ public class Gene {
     }
 
     public Gene mate(Gene partnerGene) {
-        int divisionPoint = RandomUtils.getDivisionPoint(getChromosome().length());
-        return new Gene(recreateChromosome(getChromosome(), partnerGene.getChromosome(), divisionPoint));
+        return new Gene(recreateChromosome(getChromosome(), partnerGene.getChromosome()));
     }
 
-    private String recreateChromosome(String chromosome1, String chromosome2, int divisionPoint) {
-        return chromosome1.substring(0, divisionPoint) + chromosome2.substring(divisionPoint, chromosome1.length());
+    private String recreateChromosome(String chromosome1, String chromosome2) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < chromosome1.length(); i++) {
+            if (RandomUtils.getRandomBoolean()) {
+                sb.append(chromosome1.toCharArray()[i]);
+            } else {
+                sb.append(chromosome2.toCharArray()[i]);
+            }
+        }
+        return sb.toString();
     }
 
     public int getFitness() {
         return (int) chromosome.chars().filter(e -> e == '1').count();
     }
 
-    public boolean isIdentical(Gene gene){
+    public boolean isIdentical(Gene gene) {
         return this.equals(gene);
     }
 
