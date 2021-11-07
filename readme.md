@@ -1,4 +1,5 @@
-# 👨‍💻JAVA로 (다시) 구현해본 genetic algorithm🧬
+# 👨‍💻JAVA로 (다시) 구현해본 genetic algorithm🧬  
+(21.03.26 - )
 ##  설명
 - 각 개체는 길이 8의 String 형식의 유전자를 가진다.
 - 유전자는 0과 1로 이루어져 있다.
