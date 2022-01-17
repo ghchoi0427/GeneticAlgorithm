@@ -1,3 +1,36 @@
+# 👨‍💻genetic algorithm implemented with JAVA🧬  
+(21.03.26 - )
+##  description
+- Each entity has gene in string type gene length of 8.
+- Gene is consisted of 0s and 1s.
+- Set fitness with Gene.getFitness. In this project, number of 1's.
+- Select parent entities by roulette mechanisms.
+- Same amount of children are create through mate();
+- A whole new entity is created when mutation occurs.
+- After mating, get average fitness and maximum fitness.
+##  Execution example
+---------
+>input population: 16  
+>input generation(s): 30  
+>input mutation rate(%): 1
+
+---
+  
+> generation: 1  
+> average fitness: 65%  
+> max fitness: 80%
+
+> generation: 2
+> average fitness: 68%  
+> max fitness: 88%
+
+> generation: 3
+> average fitness: 70%  
+> max fitness: 87%
+
+...
+
+
 # 👨‍💻JAVA로 (다시) 구현해본 genetic algorithm🧬  
 (21.03.26 - )
 ##  설명
